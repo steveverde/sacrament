@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	
+	<title>Sacrament Meeting Conductors Guide</title>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/project.css">
+</head>
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">LDS Sacrament</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="program.html">Program</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+    
+    	<h1 class="text-center">Island View 1st Ward Sacrament Meeting</h1>
+    	
+    	<hr/>
+
+		<form class="form-horizontal role="form">
+			<div class="form-group">
+				<div class="form-group row col-md-12">
+					<label for="date" class="col-md-1 control-label col-md-push-8">Date</label>
+					<div class="col-md-3 col-md-push-8">
+						<!-- TODO make this a jQuery or other datepicker that only allows Sundays to be selectable (since the html5 isn't great and isn't supported in many browsers) -->
+						<!-- TODO default value to the next Sunday date -->
+						<input type="date" step=7 min=2015-05-03 class="form-control" id="date" placeholder="mm/dd/yyyy"/>
+					</div>
+					<label for="presiding" class="col-md-2 control-label col-md-pull-4">Presiding</label>
+					<div class="col-md-6 col-md-pull-4">
+						<input type="text" class="form-control" id="presiding" placeholder="Presiding"/>
+					</div>
+				</div>
+				<div class="form-group row col-md-12">
+					<label for="conducting" class="col-md-2 control-label">Conducting</label>
+					<div class="col-md-6"> 
+						<input type="text" class="form-control" id="conducting" placeholder="Conducting"/>
+					</div>
+				</div>
+				<div class="form-group row col-md-12">
+					<label for="visitingAuthority" class="col-md-2 control-label">Visiting Authorities</label>
+					<div class="col-md-10">
+						<ul id="sortable" style="margin: 0px; padding: 0px;">
+							<!-- Container so new input elements can be appended in here -->
+						</ul>
+						
+						<!-- TODO make the list of Visiting Authorities movable so the order can be arranged -->
+						<button type="button" class="btn btn-success btn-block add-input" data-input-named="visitingAuthority[]" data-input-placeholder="Name of Visiting Authority">
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Visiting Authority
+						</button>
+					</div>
+				</div>
+				<div class="form-group row col-md-12">
+					<label for="annoucements" class="col-md-2 control-label">Announcements</label>
+					<div class="col-md-10">
+						<div class="sortable">
+							<!-- Container so new input elements can be appended in here -->
+						</div>
+						
+						<button type="button" class="btn btn-success btn-block add-input" data-input-named="announcements[]" data-input-placeholder="Announcement Description">
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Announcement
+						</button>
+					</div>
+				</div>
+				<div class="form-group row col-md-12">
+					<label for="openingHymn" class="col-md-2 control-label">Opening Hymn</label>
+					<div class="col-md-10">
+						<!-- TODO make this an autocomplete -->
+						<input type="text" class="form-control" id="openingHymn" placeholder="Hymn"/>
+					</div>
+				</div>
+				<div class="form-group row col-md-12">
+					<label for="invocation" class="col-md-2 control-label">Invocation</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" id="invocation" placeholder="Member's Name"/>
+					</div>
+				</div>
+				<div class="form-group row col-md-12">
+					<label for="stakeBusiness" class="col-md-2 control-label">Stake Business?</label>
+					<div class="col-md-10">
+						<div class="input-group">
+							<span class="input-group-btn">
+								<button type="button" id="yesStakeBusiness" class="btn btn-on btn-success">Yes</button>
+							</span>
+							
+							<input type="text" class="form-control on-off-toggle" data-off-id="noStakeBusiness" data-on-id="yesStakeBusiness" style="display: none;" id="stakeBusiness" placeholder="Stake Leader's Name"/>
+							
+							<span class="input-group-btn" style="width: 1px;">
+								<button type="button" id="noStakeBusiness" class="btn btn-off btn-default active">No</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		
+		<hr/>
+
+    </div> <!-- /container -->
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
+	<script>
+	$(function() {
+		$( "#sortable" ).sortable();
+//    	$( "#sortable" ).disableSelection();
+    
+		$('.add-input').each(function(index) {
+			$(this).click(function() {
+				var inputName = $(this).data('inputName');
+				var inputPlaceholder = $(this).data('inputPlaceholder');
+				var $divElement = $('<li class="input-group ui-state-default" style="padding-bottom: 5px"></li>');
+				var $inputElement = $('<input type="text" class="form-control" name="' + inputName + '" placeholder="' + inputPlaceholder + '"/>');
+				var $removeButton = $('<span class="input-group-btn"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button></span>');
+				$divElement.append($inputElement).append($removeButton);
+				
+				$(this).prev().append($divElement);
+				$inputElement.focus();
+				$removeButton.click(function() {
+					$divElement.remove();
+				});
+			});
+		});
+		
+		$('.on-off-toggle').each(function(index) {
+			var $input = $(this);
+			var $btnOn = $('#' + $input.data('onId'));
+		    var $btnOff = $('#' + $input.data('offId'));
+		    
+			$btnOn.click(function() {
+			    onOffToggle($input, $btnOn, $btnOff);
+			});
+			$btnOff.click(function() {
+			    onOffToggle($input, $btnOn, $btnOff);
+			});
+		});
+		
+		function onOffToggle($input, $btnOn, $btnOff) {
+		    $btnOn.toggleClass('active');
+			$btnOff.toggleClass('active');
+			
+		    $btnOn.toggleClass('btn-default');
+		    $btnOff.toggleClass('btn-default');
+		    
+		    $btnOn.toggleClass('btn-success');
+		    $btnOff.toggleClass('btn-danger');
+		    
+		    $input.toggle();
+		    
+		    $btnOn.blur();
+		    $btnOff.blur();
+		}
+	});
+	</script>
+</body>
+</html>
