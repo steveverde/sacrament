@@ -1,53 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	
-	<title>Sacrament Meeting Conductors Guide</title>
-	
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<link rel="stylesheet" href="styles/project.css">
-</head>
-<body>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">LDS Sacrament</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="program.html">Program</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
-
     <div class="container theme-showcase" role="main">
     
     	<h1 class="text-center">Island View 1st Ward Sacrament Meeting</h1>
@@ -82,7 +32,7 @@
 						</ul>
 						
 						<!-- TODO make the list of Visiting Authorities movable so the order can be arranged -->
-						<button type="button" class="btn btn-success btn-block add-input" data-input-named="visitingAuthority[]" data-input-placeholder="Name of Visiting Authority">
+						<button type="button" class="btn btn-success btn-block add-input" ng-click="addInput('visitingAuthority[]', 'Name of Visiting Authority')" data-input-named="visitingAuthority[]" data-input-placeholder="Name of Visiting Authority">
 							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Visiting Authority
 						</button>
 					</div>
@@ -117,13 +67,13 @@
 					<div class="col-md-10">
 						<div class="input-group">
 							<span class="input-group-btn">
-								<button type="button" id="yesStakeBusiness" class="btn btn-on btn-success">Yes</button>
+								<button type="button" id="yesStakeBusiness" class="btn {{stakeBusiness ? 'btn-default active' : 'btn-success'}}" ng-click="stakeBusiness = true" blur-on-click>Yes</button>
 							</span>
 							
-							<input type="text" class="form-control on-off-toggle" data-off-id="noStakeBusiness" data-on-id="yesStakeBusiness" style="display: none;" id="stakeBusiness" placeholder="Stake Leader's Name"/>
+							<input type="text" id="stakeBusiness" class="form-control" placeholder="Stake Leader's Name" ng-show="stakeBusiness" />
 							
 							<span class="input-group-btn" style="width: 1px;">
-								<button type="button" id="noStakeBusiness" class="btn btn-off btn-default active">No</button>
+								<button type="button" id="noStakeBusiness" class="btn {{stakeBusiness ? 'btn-danger' : 'btn-default active'}}" ng-click="stakeBusiness = false" blur-on-click>No</button>
 							</span>
 						</div>
 					</div>
@@ -134,18 +84,10 @@
 		<hr/>
 
     </div> <!-- /container -->
-    
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	
+     
+	<!-- TODO: Change this functionality from jQuery to AngularJS -->
 	<script>
 	$(function() {
-		$( "#sortable" ).sortable();
-//    	$( "#sortable" ).disableSelection();
-    
 		$('.add-input').each(function(index) {
 			$(this).click(function() {
 				var inputName = $(this).data('inputName');
@@ -162,36 +104,5 @@
 				});
 			});
 		});
-		
-		$('.on-off-toggle').each(function(index) {
-			var $input = $(this);
-			var $btnOn = $('#' + $input.data('onId'));
-		    var $btnOff = $('#' + $input.data('offId'));
-		    
-			$btnOn.click(function() {
-			    onOffToggle($input, $btnOn, $btnOff);
-			});
-			$btnOff.click(function() {
-			    onOffToggle($input, $btnOn, $btnOff);
-			});
-		});
-		
-		function onOffToggle($input, $btnOn, $btnOff) {
-		    $btnOn.toggleClass('active');
-			$btnOff.toggleClass('active');
-			
-		    $btnOn.toggleClass('btn-default');
-		    $btnOff.toggleClass('btn-default');
-		    
-		    $btnOn.toggleClass('btn-success');
-		    $btnOff.toggleClass('btn-danger');
-		    
-		    $input.toggle();
-		    
-		    $btnOn.blur();
-		    $btnOff.blur();
-		}
 	});
 	</script>
-</body>
-</html>
