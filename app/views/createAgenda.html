@@ -6,28 +6,28 @@
 
 		<form class="form-horizontal role="form">
 			<div class="form-group">
-				<div class="form-group row col-md-12">
-					<label for="date" class="col-md-1 control-label col-md-push-8">Date</label>
-					<div class="col-md-3 col-md-push-8">
+				<div class="form-group row col-sm-12">
+					<label for="date" class="col-sm-1 control-label col-sm-push-8">Date</label>
+					<div class="col-sm-3 col-sm-push-8">
 						<!-- TODO make this a jQuery or other datepicker that only allows Sundays to be selectable (since the html5 isn't great and isn't supported in many browsers) -->
 						<!-- TODO default value to the next Sunday date -->
 						<input type="date" step=7 min=2015-05-03 class="form-control" id="date" placeholder="mm/dd/yyyy"/>
 					</div>
-					<label for="presiding" class="col-md-2 control-label col-md-pull-4">Presiding</label>
-					<div class="col-md-6 col-md-pull-4">
+					<label for="presiding" class="col-sm-2 control-label col-sm-pull-4">Presiding</label>
+					<div class="col-sm-6 col-sm-pull-4">
 						<input type="text" class="form-control" id="presiding" placeholder="Presiding"/>
 					</div>
 				</div>
-				<div class="form-group row col-md-12">
-					<label for="conducting" class="col-md-2 control-label">Conducting</label>
-					<div class="col-md-6"> 
+				<div class="form-group row col-sm-12">
+					<label for="conducting" class="col-sm-2 control-label">Conducting</label>
+					<div class="col-sm-6"> 
 						<input type="text" class="form-control" id="conducting" placeholder="Conducting"/>
 					</div>
 				</div>
-				<div class="form-group row col-md-12">
-					<label for="visitingAuthority" class="col-md-2 control-label">Visiting Authorities</label>
-					<div class="col-md-10">
-						<ul id="sortable" style="margin: 0px; padding: 0px;">
+				<div class="form-group row col-sm-12">
+					<label class="col-sm-2 control-label">Visiting Authorities</label>
+					<div class="col-sm-10">
+						<ul class="sortable" style="margin: 0px; padding: 0px;">
 							<!-- Container so new input elements can be appended in here -->
 						</ul>
 						
@@ -37,34 +37,118 @@
 						</button>
 					</div>
 				</div>
-				<div class="form-group row col-md-12">
-					<label for="annoucements" class="col-md-2 control-label">Announcements</label>
-					<div class="col-md-10">
-						<div class="sortable">
+				<div class="form-group row col-sm-12">
+					<label class="col-sm-2 control-label">Announcements</label>
+					<div class="col-sm-10">
+						<ul class="sortable" style="margin: 0px; padding: 0px;">
 							<!-- Container so new input elements can be appended in here -->
-						</div>
+						</ul>
 						
-						<button type="button" class="btn btn-success btn-block add-input" data-input-named="announcements[]" data-input-placeholder="Announcement Description">
+						<button type="button" class="btn btn-success btn-block add-input" data-input-name="announcements[]" data-input-placeholder="Announcement Description">
 							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Announcement
 						</button>
 					</div>
 				</div>
-				<div class="form-group row col-md-12">
-					<label for="openingHymn" class="col-md-2 control-label">Opening Hymn</label>
-					<div class="col-md-10">
+				<div class="form-group row col-sm-12">
+					<label for="openingHymn" class="col-sm-2 control-label">Opening Hymn</label>
+					<div class="col-sm-10">
 						<!-- TODO make this an autocomplete -->
 						<input type="text" class="form-control" id="openingHymn" placeholder="Hymn"/>
 					</div>
 				</div>
-				<div class="form-group row col-md-12">
-					<label for="invocation" class="col-md-2 control-label">Invocation</label>
-					<div class="col-md-10">
+				<div class="form-group row col-sm-12">
+					<label for="invocation" class="col-sm-2 control-label">Invocation</label>
+					<div class="col-sm-10">
 						<input type="text" class="form-control" id="invocation" placeholder="Member's Name"/>
 					</div>
 				</div>
-				<div class="form-group row col-md-12">
-					<label for="stakeBusiness" class="col-md-2 control-label">Stake Business?</label>
-					<div class="col-md-10">
+			</div>
+			<hr/>
+			<div class="form-group">
+				<h4 class="text-center row col-sm-12">Ward Business</h4>
+				<div class="form-group row col-sm-12">
+					<label class="col-sm-2 control-label">Releases:</label>
+					<div class="col-sm-10">
+						<ul class="sortable" style="margin: 0px; padding: 0px;">
+							<!-- Container so new input elements can be appended in here -->
+						</ul>
+						
+						<button type="button" class="btn btn-success btn-block add-two-inputs" data-input1-name="releaseNames[]" data-input2-name="releasePositions[]" data-input1-placeholder="Member's Name" data-input2-placeholder="Position Name">
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Release
+						</button>
+					</div>
+				</div>
+				
+				<div class="form-group row col-sm-12">
+					<label class="col-sm-2 control-label">Sustainings:</label>
+					<div class="col-sm-10">
+						<ul class="sortable" style="margin: 0px; padding: 0px;">
+							<!-- Container so new input elements can be appended in here -->
+						</ul>
+						
+						<button type="button" class="btn btn-success btn-block add-two-inputs" data-input1-name="sustainNames[]" data-input2-name="sustainPositions[]" data-input1-placeholder="Member's Name" data-input2-placeholder="Position Name">
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Sustaining
+						</button>
+					</div>
+				</div>
+				
+				<div class="form-group row col-sm-12">
+					<label class="col-sm-2 control-label">Advancements:</label>
+					<div class="col-sm-10">
+						<ul class="sortable" style="margin: 0px; padding: 0px;">
+							<!-- Container so new input elements can be appended in here -->
+						</ul>
+						
+						<button type="button" class="btn btn-success btn-block add-two-inputs" data-input1-name="advancementNames[]" data-input2-name="advancementTypes[]" data-input1-placeholder="Member's Name" data-input2-placeholder="Advancement">
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Advancement
+						</button>
+					</div>
+				</div>
+				
+				<div class="form-group row col-sm-12">
+					<label class="col-sm-2 control-label">Blessings:</label>
+					<div class="col-sm-10">
+						<ul class="sortable" style="margin: 0px; padding: 0px;">
+							<!-- Container so new input elements can be appended in here -->
+						</ul>
+						
+						<button type="button" class="btn btn-success btn-block add-two-inputs" data-input1-name="blessingNames[]" data-input2-name="blessingByNames[]" data-input1-placeholder="Member's Name" data-input2-placeholder="Performed By">
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Blessing
+						</button>
+					</div>
+				</div>
+				
+				<div class="form-group row col-sm-12">
+					<label class="col-sm-2 control-label">Confirmations:</label>
+					<div class="col-sm-10">
+						<ul class="sortable" style="margin: 0px; padding: 0px;">
+							<!-- Container so new input elements can be appended in here -->
+						</ul>
+						
+						<button type="button" class="btn btn-success btn-block add-two-inputs" data-input1-name="confirmationNames[]" data-input2-name="confirmationByNames[]" data-input1-placeholder="Member's Name" data-input2-placeholder="Performed By">
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Confirmation
+						</button>
+					</div>
+				</div>
+				
+				<div class="form-group row col-sm-12">
+					<label class="col-sm-2 control-label">New Move-In Records:</label>
+					<div class="col-sm-10">
+						<ul class="sortable" style="margin: 0px; padding: 0px;">
+							<!-- Container so new input elements can be appended in here -->
+						</ul>
+						
+						<button type="button" class="btn btn-success btn-block add-input" data-input-name="newMoveinNames[]" data-input-placeholder="Member's Name">
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add New Move-In
+						</button>
+					</div>
+				</div>
+			</div>
+			<hr/>
+			<div class="form-group">
+				<div class="form-group row col-sm-12">
+					<label class="col-sm-2 control-label">Stake Business?</label>
+					<div class="col-sm-10">
 						<div class="input-group">
 							<span class="input-group-btn">
 								<button type="button" id="yesStakeBusiness" class="btn {{stakeBusiness ? 'btn-default active' : 'btn-success'}}" ng-click="stakeBusiness = true" blur-on-click>Yes</button>
@@ -76,6 +160,32 @@
 								<button type="button" id="noStakeBusiness" class="btn {{stakeBusiness ? 'btn-danger' : 'btn-default active'}}" ng-click="stakeBusiness = false" blur-on-click>No</button>
 							</span>
 						</div>
+					</div>
+				</div>
+				<div class="form-group row col-sm-12">
+					<label class="col-sm-2 control-label">Sacrament Hymn</label>
+					<div class="col-sm-10">
+						<!-- TODO make this an autocomplete -->
+						<input type="text" class="form-control" id="sacramentHymn" placeholder="Hymn"/>
+					</div>
+				</div>
+				<div class="form-group row col-sm-12">
+					<label for="program" class="col-sm-2 control-label">Program</label>
+					<div class="col-sm-10">
+						<textarea class="form-control" id="programs" placeholder="Speakers / Musical Numbers / Etc"/>
+					</div>
+				</div>
+				<div class="form-group row col-sm-12">
+					<label for="closingHymn" class="col-sm-2 control-label">Closing Hymn</label>
+					<div class="col-sm-10">
+						<!-- TODO make this an autocomplete -->
+						<input type="text" class="form-control" id="closingHymn" placeholder="Hymn"/>
+					</div>
+				</div>
+				<div class="form-group row col-sm-12">
+					<label for="benediction" class="col-sm-2 control-label">Benediction</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="benediction" placeholder="Member's Name"/>
 					</div>
 				</div>
 			</div>
@@ -99,6 +209,26 @@
 				
 				$(this).prev().append($divElement);
 				$inputElement.focus();
+				$removeButton.click(function() {
+					$divElement.remove();
+				});
+			});
+		});
+		
+		$('.add-two-inputs').each(function(index) {
+			$(this).click(function() {
+				var input1Name = $(this).data('input1Name');
+				var input2Name = $(this).data('input2Name');
+				var input1Placeholder = $(this).data('input1Placeholder');
+				var input2Placeholder = $(this).data('input2Placeholder');
+				var $divElement = $('<li class="input-group ui-state-default" style="padding-bottom: 5px"></li>');
+				var $input1Element = $('<input type="text" class="form-control" style="width: 50%;" name="' + input1Name + '" placeholder="' + input1Placeholder + '"/>');
+				var $input2Element = $('<input type="text" class="form-control" style="width: 50%;" name="' + input2Name + '" placeholder="' + input2Placeholder + '"/>');
+				var $removeButton = $('<span class="input-group-btn"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button></span>');
+				$divElement.append($input1Element).append($input2Element).append($removeButton);
+				
+				$(this).prev().append($divElement);
+				$input1Element.focus();
 				$removeButton.click(function() {
 					$divElement.remove();
 				});
